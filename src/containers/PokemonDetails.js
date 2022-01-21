@@ -30,8 +30,7 @@ const styles = (theme) => ({
   },
   textTitle: {
     textTransform: "upperCase",
-    fontFamily: "Pokemon Solid",
-    color: "lightgreen",
+    fontFamily: "Dragon FREE",
   },
   pokemonImage: {
     width: "170px",

@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   pokedexContainer: {
     textAlign: "center",
     padding: "70px 10px 0px 10px",
-    backgroundColor: 'rgb(68, 68, 68)'
+    backgroundColor: "rgb(68, 68, 68)",
   },
 }));
 
@@ -16,7 +16,7 @@ export default function Pokedex() {
   const classes = useStyles();
   const [pokemonData, setPokemonData] = useState(null);
   useEffect(() => {
-    axios.get(POKEMON_API_URL + "?limit=800").then((response) => {
+    axios.get(POKEMON_API_URL + "?limit=500").then((response) => {
       if (response.status >= 200 && response.status < 300) {
         const { results } = response.data;
         let newPokemonData = [];
@@ -33,6 +33,7 @@ export default function Pokedex() {
       }
     });
   }, []);
+
   return (
     <Box>
       {pokemonData ? (
