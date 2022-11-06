@@ -29,8 +29,8 @@ const styles = (theme) => ({
     paddingTop: 30,
   },
   textTitle: {
-    textTransform: "upperCase",
-    fontFamily: "Dragon FREE",
+    // textTransform: "upperCase",
+    fontFamily: "open sans regular",
   },
   pokemonImage: {
     width: "170px",
@@ -51,8 +51,9 @@ const styles = (theme) => ({
     marginTop: 15,
   },
   text: {
-    textTransform: "upperCase",
+    // textTransform: "upperCase",
     fontSize: 30,
+    fontFamily: "open sans regular",
   },
 });
 
@@ -88,7 +89,9 @@ class PokemonDetails extends Component {
     const { classes } = this.props;
     const { pokemon } = this.state;
     if (pokemon) {
-      const { name, sprites, height, weight, types } = pokemon;
+      const { name, sprites, height, weight, types, moves } = pokemon;
+      const main_type = types[0].type.name;
+      const main_move = moves[0].move.name;
       return (
         <Box className={classes.completeBox}>
           <Box className={classes.pokedexContainer}>
@@ -100,10 +103,12 @@ class PokemonDetails extends Component {
               src={sprites.front_default}
               alt="loading..."
             />
-            <Box
-              className={classes.pokemonInfoContainer}
-              sx={{ fontStyle: "italic" }}
-            >
+            <img
+              className={classes.pokemonImage}
+              src={sprites.back_default}
+              alt="loading..."
+            />
+            <Box className={classes.pokemonInfoContainer}>
               <hr className={classes.seperator} />
               <Grid container>
                 <Grid item md={1}>
@@ -140,18 +145,25 @@ class PokemonDetails extends Component {
                     {weight}kg
                   </Typography>
                 </Grid>
-                {types.map((pokemonType) => {
+                {/* {types.map((pokemonType) => {
                   const { name } = pokemonType.type;
-                  return (
-                    <Grid item md={2}>
-                      <Typography className={classes.text}>
-                        Type:
-                        <br />
-                        {name}
-                      </Typography>
-                    </Grid>
-                  );
-                })}
+                  return ( */}
+                <Grid item md={2}>
+                  <Typography className={classes.text}>
+                    Type:
+                    <br />
+                    {main_type}
+                  </Typography>
+                </Grid>
+                <Grid item md={2}>
+                  <Typography className={classes.text}>
+                    Main move:
+                    <br />
+                    {main_move}
+                  </Typography>
+                </Grid>
+                {/* );
+                })} */}
               </Grid>
             </Box>
           </Box>

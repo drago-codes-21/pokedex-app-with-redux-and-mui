@@ -1,12 +1,13 @@
 import React from "react";
 import {
   Grid,
-  Card,
+  // Card,
   CardMedia,
-  CardContent,
+  // CardContent,
   Typography,
   makeStyles,
 } from "@material-ui/core";
+import "./card.css";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -38,13 +39,18 @@ export default function PokemonCard(props) {
   return (
     <Grid item xs={12} sm={2} key={id}>
       <Link to={"/pokemon/" + id} className={classes.link}>
-        <Card className={classes.card}>
+        <div className="card-container">
           <CardMedia className={classes.cardMedia} image={image}></CardMedia>
-          <CardContent className={classes.cardContent}>
-            <Typography>{name}</Typography>
-          </CardContent>
-        </Card>
+          <Typography>{name}</Typography>
+        </div>
       </Link>
     </Grid>
   );
 }
+/*
+        {/* <Card className={classes.card}>
+          <CardMedia className={classes.cardMedia} image={image}></CardMedia>
+          <CardContent className={classes.cardContent}>
+            <Typography>{name}</Typography>
+          </CardContent>
+        </Card> */

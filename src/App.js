@@ -7,8 +7,9 @@ import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import Favourites from "./containers/Favourites";
+import "./App.css";
 
-export default function App() {
+const App = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -21,4 +22,5 @@ export default function App() {
       </PersistGate>
     </Provider>
   );
-}
+};
+export default App;
